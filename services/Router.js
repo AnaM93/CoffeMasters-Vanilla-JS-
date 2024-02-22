@@ -32,18 +32,20 @@ const Router = {
       default:
         if (route.startsWith("/product-")) {
           pageElement = document.createElement("details-page");
-          const paramId = route.substring(route.lastIndexOf("-") + 1);
-          pageElement.dataset.id = paramId;
+          pageElement.dataset.productId = route.substring(
+            route.lastIndexOf("-") + 1
+          );
         }
+        break;
     }
 
     if (pageElement) {
-      let cache = document.querySelector("main");
-      cache.innerHTML = "";
-      cache.appendChild(pageElement);
-      window.scrollX = 0;
-      window.scrollY = 0;
+      document.querySelector("main").innerHTML = "";
+      document.querySelector("main").appendChild(pageElement);
+
     }
+    window.scrollX = 0;
+    window.scrollY = 0;
   },
 };
 
